@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <RootNamespace>memerator_sdk_cs</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Compile Remove="MemeratorAPI.cs" />
+      <Compile Remove="API.cs" />
+    </ItemGroup>
+
+</Project>
