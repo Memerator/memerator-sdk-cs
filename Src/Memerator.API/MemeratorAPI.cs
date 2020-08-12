@@ -34,5 +34,10 @@ namespace Memerator.API
         {
             return new User(JObject.Parse(GetAPI().get("profile/" + username)));
         }
+
+        public Meme RandomMeme()
+        {
+            return new Meme(JObject.Parse(GetAPI().get("meme/random")));
+        }
     }
 }
