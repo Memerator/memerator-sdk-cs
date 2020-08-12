@@ -27,4 +27,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: Memerator.API.dll
-        path: Src/bin/Release/netcoreapp2.1/Memerator.API.dll
+        path: Src/Memerator.API/bin/Release/netcoreapp2.1/Memerator.API.dll
