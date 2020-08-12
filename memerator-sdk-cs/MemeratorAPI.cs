@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text.Json;
 using memerator_sdk_cs.Objects;
 
 namespace memerator_sdk_cs
@@ -12,22 +11,23 @@ namespace memerator_sdk_cs
         public MemeratorAPI(String key)
         {
             token = key;
+            api = new api(newToken)
         }
         
-        public void setToken(String newToken) 
+        public void SetToken(String newToken) 
         {
             token = newToken;
-            api = new API(newToken);
         }
         
-        public API getAPI()
+        public API GetAPI()
         {
             return api;
         }
 
-        public Meme getMeme(String id)
+        public Meme GetMeme(String id)
         {
-            return JsonSerializer.Deserialize<Meme>(getAPI().get("meme/" + id));
+            JObject response = JObject.Parse(getAPI().get("meme/" + id));
+            return new Meme(response);
         }
     }
 }
