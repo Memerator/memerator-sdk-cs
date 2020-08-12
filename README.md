@@ -8,7 +8,7 @@ To install and use the SDK, follow the steps below.
 
 ### Prerequisites
 
-Memerator depends on .NET Core version 2.1 or above, and requires NuGet package Newtonsoft.Json 12.0.3 or later. 
+Memerator for C# depends on .NET Core version 2.1 or above, and requires NuGet package Newtonsoft.Json 12.0.3 or later. 
 
 ### Installing
 
@@ -17,6 +17,31 @@ As of now, you can download the .dll from the Actions tab.
 1) Go to [here](https://github.com/Memerator/memerator-sdk-cs/actions?query=branch%3Amaster+is%3Acompleted+event%3Apush)
 2) Click the latest (highest) workflow
 3) Click `memerator-sdk-cs.dll` to download the only artifact.
+
+### Usage
+
+Here is a sample code that will print the caption of the meme with ID "aaaaaaa".
+
+```c#
+using Memerator.API;
+
+using System;
+using Memerator.API;
+using Memerator.API.Objects;
+
+namespace TestApp
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            MemeratorAPI api = new MemeratorAPI("[your api key");
+            Meme meme = api.GetMeme("aaaaaaa");
+            Console.WriteLine("Caption for meme aaaaaaa: " + meme.Caption());
+        }
+    }
+}
+```
 
 ## Built With
 
