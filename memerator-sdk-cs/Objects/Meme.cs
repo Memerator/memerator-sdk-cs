@@ -62,5 +62,10 @@ namespace memerator_sdk_cs.Objects
         {
             return values["disabled"].Value<Boolean>();
         }
+        
+        public User Author()
+        {
+            return new User(values["author"].Value<JObject>());
+        }
     }
 }
