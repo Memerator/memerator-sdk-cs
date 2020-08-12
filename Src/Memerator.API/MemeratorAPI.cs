@@ -6,8 +6,8 @@ namespace Memerator.API
 {
     public class MemeratorAPI
     {
-        public static String token;
-        public static API api;
+        private static String token;
+        private static API api;
 
         public MemeratorAPI(String key)
         {
@@ -20,7 +20,7 @@ namespace Memerator.API
             token = newToken;
         }
         
-        public API GetAPI()
+        public static API GetAPI()
         {
             return api;
         }

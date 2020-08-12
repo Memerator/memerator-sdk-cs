@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 
 namespace Memerator.API.Objects
@@ -66,6 +67,16 @@ namespace Memerator.API.Objects
         public User Author()
         {
             return new User(values["author"].Value<JObject>());
+        }
+        
+        public void Disable() {
+            MemeratorAPI.GetAPI().put("meme/" + MemeId() + "/disable", new Dictionary<string, string>());
+            values["disabled"] = true;
+        }
+        
+        public void Enable() {
+            MemeratorAPI.GetAPI().put("meme/" + MemeId() + "/enable", new Dictionary<string, string>());
+            values["disabled"] = false;
         }
     }
 }
