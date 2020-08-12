@@ -1,5 +1,6 @@
 ﻿using System;
 using memerator_sdk_cs.Objects;
+using Newtonsoft.Json.Linq;
 
 namespace memerator_sdk_cs
 {
@@ -11,7 +12,7 @@ namespace memerator_sdk_cs
         public MemeratorAPI(String key)
         {
             token = key;
-            api = new api(newToken)
+            api = new API(key);
         }
         
         public void SetToken(String newToken) 
@@ -26,7 +27,7 @@ namespace memerator_sdk_cs
 
         public Meme GetMeme(String id)
         {
-            JObject response = JObject.Parse(getAPI().get("meme/" + id));
+            JObject response = JObject.Parse(GetAPI().get("meme/" + id));
             return new Meme(response);
         }
     }
