@@ -3,6 +3,12 @@
     <PropertyGroup>
         <TargetFramework>netcoreapp2.1</TargetFramework>
         <RootNamespace>memerator_sdk_cs</RootNamespace>
+        <Title>MemeratorAPI</Title>
+        <Authors>Memerator Developers</Authors>
+        <Description>The official Memerator API wrapper in C#</Description>
+        <PackageProjectUrl>https://github.com/Memerator/memerator-sdk-cs</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/Memerator/memerator-sdk-cs/blob/master/LICENSE</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/Memerator/memerator-sdk-cs</RepositoryUrl>
     </PropertyGroup>
     
     <ItemGroup>
