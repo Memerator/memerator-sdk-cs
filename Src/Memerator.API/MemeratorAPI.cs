@@ -27,17 +27,17 @@ namespace Memerator.API
 
         public Meme GetMeme(String id)
         {
-            return new Meme(JObject.Parse(GetAPI().get("meme/" + id)));
+            return new Meme(JObject.Parse(GetAPI().Get("meme/" + id)));
         }
 
         public User GetUser(String username)
         {
-            return new User(JObject.Parse(GetAPI().get("profile/" + username)));
+            return new User(JObject.Parse(GetAPI().Get("profile/" + username)));
         }
 
         public Meme RandomMeme()
         {
-            return new Meme(JObject.Parse(GetAPI().get("meme/random")));
+            return new Meme(JObject.Parse(GetAPI().Get("meme/random")));
         }
     }
 }

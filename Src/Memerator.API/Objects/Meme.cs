@@ -70,12 +70,12 @@ namespace Memerator.API.Objects
         }
         
         public void Disable() {
-            MemeratorAPI.GetAPI().put("meme/" + MemeId() + "/disable", new Dictionary<string, string>());
+            MemeratorAPI.GetAPI().Put("meme/" + MemeId() + "/disable", new Dictionary<string, string>());
             values["disabled"] = true;
         }
         
         public void Enable() {
-            MemeratorAPI.GetAPI().put("meme/" + MemeId() + "/enable", new Dictionary<string, string>());
+            MemeratorAPI.GetAPI().Put("meme/" + MemeId() + "/enable", new Dictionary<string, string>());
             values["disabled"] = false;
         }
     }

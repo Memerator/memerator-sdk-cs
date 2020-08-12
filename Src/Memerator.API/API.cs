@@ -7,45 +7,45 @@ namespace Memerator.API
 {
     public class API
     {
-        private static readonly HttpClient client = new HttpClient();
+        private static readonly HttpClient Client = new HttpClient();
 
         public API(String apiKey)
         {
-            client.BaseAddress = new Uri("https://api.memerator.me/v1/");
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(apiKey);
+            Client.BaseAddress = new Uri("https://api.memerator.me/v1/");
+            Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(apiKey);
         }
 
-        public String get(String path) {
-            return client.GetStringAsync(path).Result;
+        public String Get(String path) {
+            return Client.GetStringAsync(path).Result;
         }
 
-        public String post(String path, Dictionary<String, String> values)
+        public String Post(String path, Dictionary<String, String> values)
         {
             var content = new FormUrlEncodedContent(values);
-            var response = client.PostAsync(path, content).Result;
+            var response = Client.PostAsync(path, content).Result;
 
             return response.Content.ReadAsStringAsync().Result;
         }
 
-        public String put(String path, Dictionary<String, String> values)
+        public String Put(String path, Dictionary<String, String> values)
         {
             var content = new FormUrlEncodedContent(values);
-            var response = client.PutAsync(path, content).Result;
+            var response = Client.PutAsync(path, content).Result;
 
             return response.Content.ReadAsStringAsync().Result;
         }
 
-        public String patch(String path, Dictionary<String, String> values)
+        public String Patch(String path, Dictionary<String, String> values)
         {
             var content = new FormUrlEncodedContent(values);
-            var response = client.PatchAsync(path, content).Result;
+            var response = Client.PatchAsync(path, content).Result;
 
             return response.Content.ReadAsStringAsync().Result;
         }
 
-        public String delete(String path)
+        public String Delete(String path)
         {
-            return client.DeleteAsync(path).Result.Content.ReadAsStringAsync().Result;
+            return Client.DeleteAsync(path).Result.Content.ReadAsStringAsync().Result;
         }
     }
 }
