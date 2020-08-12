@@ -27,8 +27,12 @@ namespace memerator_sdk_cs
 
         public Meme GetMeme(String id)
         {
-            JObject response = JObject.Parse(GetAPI().get("meme/" + id));
-            return new Meme(response);
+            return new Meme(JObject.Parse(GetAPI().get("meme/" + id)));
+        }
+
+        public User GetUser(String username)
+        {
+            return new User(JObject.Parse(GetAPI().get("profile/" + username)));
         }
     }
 }
