@@ -53,7 +53,7 @@ namespace Memerator.API.Objects
         }
 
         public void Delete() {
-            MemeratorAPI.GetAPI().Delete("/notification/" + NotificationId());
+            API.Delete("/notification/" + NotificationId());
         }
     }
 }

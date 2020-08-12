@@ -32,7 +32,7 @@ namespace Memerator.API.Objects
         }
 
         public void Delete() {
-            MemeratorAPI.GetAPI().Delete("/notification/" + CommentId());
+            API.Delete("/notification/" + CommentId());
         }
     }
 }

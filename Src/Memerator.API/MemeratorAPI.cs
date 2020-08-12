@@ -19,25 +19,20 @@ namespace Memerator.API
         {
             token = newToken;
         }
-        
-        public static API GetAPI()
-        {
-            return api;
-        }
 
         public Meme GetMeme(string id)
         {
-            return new Meme(JObject.Parse(GetAPI().Get("meme/" + id)));
+            return new Meme(JObject.Parse(API.Get("meme/" + id)));
         }
 
         public User GetUser(string username)
         {
-            return new User(JObject.Parse(GetAPI().Get("profile/" + username)));
+            return new User(JObject.Parse(API.Get("profile/" + username)));
         }
 
         public Meme RandomMeme()
         {
-            return new Meme(JObject.Parse(GetAPI().Get("meme/random")));
+            return new Meme(JObject.Parse(API.Get("meme/random")));
         }
     }
 }

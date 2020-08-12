@@ -15,11 +15,11 @@ namespace Memerator.API
             Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(apiKey);
         }
 
-        public string Get(string path) {
+        public static string Get(string path) {
             return Client.GetStringAsync(path).Result;
         }
 
-        public string Post(string path, Dictionary<string, string> values)
+        public static string Post(string path, Dictionary<string, string> values)
         {
             var content = new FormUrlEncodedContent(values);
             var response = Client.PostAsync(path, content).Result;
@@ -27,7 +27,7 @@ namespace Memerator.API
             return response.Content.ReadAsStringAsync().Result;
         }
 
-        public string Put(string path, Dictionary<string, string> values)
+        public static string Put(string path, Dictionary<string, string> values)
         {
             var content = new FormUrlEncodedContent(values);
             var response = Client.PutAsync(path, content).Result;
@@ -43,7 +43,7 @@ namespace Memerator.API
             return response.Content.ReadAsStringAsync().Result;
         }
 
-        public string Delete(string path)
+        public static string Delete(string path)
         {
             return Client.DeleteAsync(path).Result.Content.ReadAsStringAsync().Result;
         }

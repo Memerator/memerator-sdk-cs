@@ -71,18 +71,18 @@ namespace Memerator.API.Objects
         }
         
         public void Disable() {
-            MemeratorAPI.GetAPI().Put("meme/" + MemeId() + "/disable", new Dictionary<string, string>());
+            API.Put("meme/" + MemeId() + "/disable", new Dictionary<string, string>());
             values["disabled"] = true;
         }
         
         public void Enable() {
-            MemeratorAPI.GetAPI().Put("meme/" + MemeId() + "/enable", new Dictionary<string, string>());
+            API.Put("meme/" + MemeId() + "/enable", new Dictionary<string, string>());
             values["disabled"] = false;
         }
 
         public List<Comment> Comments()
         {
-            var commentJson = JArray.Parse(MemeratorAPI.GetAPI().Get("meme/" + MemeId() + "/comments"));
+            var commentJson = JArray.Parse(API.Get("meme/" + MemeId() + "/comments"));
 
             return commentJson.Select(comment => new Comment(comment.Value<JObject>())).ToList();
         }

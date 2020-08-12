@@ -33,35 +33,35 @@ namespace Memerator.API.Objects
         {
             var body = new Dictionary<string, string> {{"username", username}};
 
-            MemeratorAPI.GetAPI().Post("profile/me", body);
+            API.Post("profile/me", body);
         }
 
         public void SetBio(string bio)
         {
             var body = new Dictionary<string, string> {{"bio", bio}};
 
-            MemeratorAPI.GetAPI().Post("profile/me", body);
+            API.Post("profile/me", body);
         }
 
         public List<Notification> Notifications()
         {
-            var notificationArray = JArray.Parse(MemeratorAPI.GetAPI().Get("notifications"));
+            var notificationArray = JArray.Parse(API.Get("notifications"));
 
             return notificationArray.Select(notification => new Notification(notification.Value<JObject>())).ToList();
         }
 
         public List<Report> Reports() {
-            var reportArray = JArray.Parse(MemeratorAPI.GetAPI().Get("reports"));
+            var reportArray = JArray.Parse(API.Get("reports"));
 
             return reportArray.Select(report => new Report(report.Value<JObject>())).ToList();
         }
 
         public Report Report(int id) {
-            return new Report(JObject.Parse(MemeratorAPI.GetAPI().Get("/report/" + id)));
+            return new Report(JObject.Parse(API.Get("/report/" + id)));
         }
 
         public int NotificationCount() {
-            return JObject.Parse(MemeratorAPI.GetAPI().Get("/notifications/count"))["count"].Value<int>();
+            return JObject.Parse(API.Get("/notifications/count"))["count"].Value<int>();
         }
     }
 }
