@@ -1,8 +1,8 @@
 ﻿using System;
-using memerator_sdk_cs.Objects;
+using Memerator.API.Objects;
 using Newtonsoft.Json.Linq;
 
-namespace memerator_sdk_cs
+namespace Memerator.API
 {
     public class MemeratorAPI
     {

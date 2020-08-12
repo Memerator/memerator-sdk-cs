@@ -1,7 +1,7 @@
 using System;
 using Newtonsoft.Json.Linq;
 
-namespace memerator_sdk_cs.Objects
+namespace Memerator.API.Objects
 {
     public class Meme
     {
