@@ -24,23 +24,23 @@ namespace Memerator.API.Objects
             return DateTime.Parse(values["timestamp"].Value<string>());
         }
 
-        public String MessageContent() {
-            return values["message"].Value<String>();
+        public string MessageContent() {
+            return values["message"].Value<string>();
         }
 
-        public String RawMessageContent() {
-            return values["raw"].Value<String>();
+        public string RawMessageContent() {
+            return values["raw"].Value<string>();
         }
         
         public int Type() {
             return values["type"].Value<int>();
         }
 
-        public String AssociatedMemeID() {
+        public string AssociatedMemeID() {
             if (values["meme"] == null) {
                 return null;
             } else {
-                return values["meme"]["memeid"].Value<String>();
+                return values["meme"]["memeid"].Value<string>();
             }
         }
 

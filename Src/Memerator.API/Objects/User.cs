@@ -11,9 +11,9 @@ namespace Memerator.API.Objects
             values = items;
         }
 
-        public String Username()
+        public string Username()
         {
-            return values["username"].Value<String>();
+            return values["username"].Value<string>();
         }
         
         public long Id()
@@ -21,9 +21,9 @@ namespace Memerator.API.Objects
             return values["id"].Value<long>();;
         }
 
-        public String getBio()
+        public string getBio()
         {
-            return values["bio"].Value<String>();;
+            return values["bio"].Value<string>();;
         }
 
         public int Followers()
@@ -41,44 +41,44 @@ namespace Memerator.API.Objects
             return values["stats"]["memes"].Value<int>();;
         }
 
-        public Boolean Verified()
+        public bool Verified()
         {
-            return values["perks"]["verified"].Value<Boolean>();
+            return values["perks"]["verified"].Value<bool>();
         }
 
-        public Boolean Staff()
+        public bool Staff()
         {
-            return values["perks"]["staff"].Value<Boolean>();
+            return values["perks"]["staff"].Value<bool>();
         }
 
-        public Boolean Translator()
+        public bool Translator()
         {
-            return values["perks"]["translator"].Value<Boolean>();
+            return values["perks"]["translator"].Value<bool>();
         }
 
-        public Boolean Pro()
+        public bool Pro()
         {
-            return values["perks"]["pro"].Value<Boolean>();
+            return values["perks"]["pro"].Value<bool>();
         }
 
-        public Boolean Service()
+        public bool Service()
         {
-            return values["perks"]["service"].Value<Boolean>();
+            return values["perks"]["service"].Value<bool>();
         }
 
-        public Boolean Founder()
+        public bool Founder()
         {
-            return values["perks"]["founder"].Value<Boolean>();
+            return values["perks"]["founder"].Value<bool>();
         }
 
-        public String ProfileUrl()
+        public string ProfileUrl()
         {
-            return values["permalink"].Value<String>();
+            return values["permalink"].Value<string>();
         }
 
         public DateTime JoinDate()
         {
-            return DateTime.Parse(values["joined"].Value<String>());
+            return DateTime.Parse(values["joined"].Value<string>());
         }
     }
 }

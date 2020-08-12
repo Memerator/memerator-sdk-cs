@@ -7,7 +7,7 @@ namespace Memerator.API.Objects
 {
     public class Profile : User
     {
-        JObject values;
+        private readonly JObject values;
 
         public Profile(JObject items) : base(items)
         {
@@ -16,23 +16,22 @@ namespace Memerator.API.Objects
         
         public DateTime ProExpirationDate()
         {
-            return DateTime.Parse(values["pro"]["expires"].Value<String>());
+            return DateTime.Parse(values["pro"]["expires"].Value<string>());
         }
 
         public DateTime ProStartDate()
         {
-            return DateTime.Parse(values["pro"]["since"].Value<String>());
+            return DateTime.Parse(values["pro"]["since"].Value<string>());
         }
 
-        public Boolean ActivePro()
+        public bool ActivePro()
         {
-            return values["pro"]["active"].Value<Boolean>();
+            return values["pro"]["active"].Value<bool>();
         }
         
-        public void SetUsername(String username)
+        public void SetUsername(string username)
         {
-            Dictionary<String, String> body = new Dictionary<string, string>();
-            body.Add("username", username);
+            var body = new Dictionary<string, string> {{"username", username}};
 
             MemeratorAPI.GetAPI().Post("profile/me", body);
         }
@@ -51,7 +50,7 @@ namespace Memerator.API.Objects
             return notificationArray.Select(notification => new Notification(notification.Value<JObject>())).ToList();
         }
 
-        public List<Report> getReports() {
+        public List<Report> Reports() {
             var reportArray = JArray.Parse(MemeratorAPI.GetAPI().Get("reports"));
 
             return reportArray.Select(report => new Report(report.Value<JObject>())).ToList();

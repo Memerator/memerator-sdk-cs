@@ -9,17 +9,17 @@ namespace Memerator.API
     {
         private static readonly HttpClient Client = new HttpClient();
 
-        public API(String apiKey)
+        public API(string apiKey)
         {
             Client.BaseAddress = new Uri("https://api.memerator.me/v1/");
             Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(apiKey);
         }
 
-        public String Get(String path) {
+        public string Get(string path) {
             return Client.GetStringAsync(path).Result;
         }
 
-        public String Post(String path, Dictionary<String, String> values)
+        public string Post(string path, Dictionary<string, string> values)
         {
             var content = new FormUrlEncodedContent(values);
             var response = Client.PostAsync(path, content).Result;
@@ -27,7 +27,7 @@ namespace Memerator.API
             return response.Content.ReadAsStringAsync().Result;
         }
 
-        public String Put(String path, Dictionary<String, String> values)
+        public string Put(string path, Dictionary<string, string> values)
         {
             var content = new FormUrlEncodedContent(values);
             var response = Client.PutAsync(path, content).Result;
@@ -35,7 +35,7 @@ namespace Memerator.API
             return response.Content.ReadAsStringAsync().Result;
         }
 
-        public String Patch(String path, Dictionary<String, String> values)
+        public string Patch(string path, Dictionary<string, string> values)
         {
             var content = new FormUrlEncodedContent(values);
             var response = Client.PatchAsync(path, content).Result;
@@ -43,7 +43,7 @@ namespace Memerator.API
             return response.Content.ReadAsStringAsync().Result;
         }
 
-        public String Delete(String path)
+        public string Delete(string path)
         {
             return Client.DeleteAsync(path).Result.Content.ReadAsStringAsync().Result;
         }

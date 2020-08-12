@@ -6,16 +6,16 @@ namespace Memerator.API
 {
     public class MemeratorAPI
     {
-        private static String token;
+        private static string token;
         private static API api;
 
-        public MemeratorAPI(String key)
+        public MemeratorAPI(string key)
         {
             token = key;
             api = new API(key);
         }
         
-        public void SetToken(String newToken) 
+        public void SetToken(string newToken) 
         {
             token = newToken;
         }
@@ -25,12 +25,12 @@ namespace Memerator.API
             return api;
         }
 
-        public Meme GetMeme(String id)
+        public Meme GetMeme(string id)
         {
             return new Meme(JObject.Parse(GetAPI().Get("meme/" + id)));
         }
 
-        public User GetUser(String username)
+        public User GetUser(string username)
         {
             return new User(JObject.Parse(GetAPI().Get("profile/" + username)));
         }

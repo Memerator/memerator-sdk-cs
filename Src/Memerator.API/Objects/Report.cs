@@ -28,7 +28,7 @@ namespace Memerator.API.Objects
         }
 
         public string getDescription() {
-            return values["message"]["description"].Value<String>();
+            return values["message"]["description"].Value<string>();
         }
 
         public User Assignee() {
@@ -39,8 +39,8 @@ namespace Memerator.API.Objects
             }
         }
 
-        public String StaffComment() {
-            return values["comment"].Value<String>();
+        public string StaffComment() {
+            return values["comment"].Value<string>();
         }
     }
 }

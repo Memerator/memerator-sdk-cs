@@ -15,12 +15,12 @@ namespace Memerator.API.Objects
             return values["id"].Value<int>();
         }
 
-        public String CommentContent() {
-            return values["content"].Value<String>();
+        public string CommentContent() {
+            return values["content"].Value<string>();
         }
 
         public DateTime Timestamp() {
-            return DateTime.Parse(values["timestamp"].Value<String>());
+            return DateTime.Parse(values["timestamp"].Value<string>());
         }
 
         public User Author() {

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Newtonsoft.Json.Linq;
 
 namespace Memerator.API.Objects
@@ -12,16 +13,16 @@ namespace Memerator.API.Objects
             values = items;
         }
 
-        public String MemeId()
+        public string MemeId()
         {
-            return values["memeid"].Value<String>();
+            return values["memeid"].Value<string>();
         }
 
-        public String Caption()
+        public string Caption()
         {
             try
             {
-                return values["caption"].Value<String>();
+                return values["caption"].Value<string>();
             }
             catch (NullReferenceException)
             {
@@ -29,9 +30,9 @@ namespace Memerator.API.Objects
             }
         }
 
-        public String ImageUrl()
+        public string ImageUrl()
         {
-            return values["url"].Value<String>();
+            return values["url"].Value<string>();
         }
 
         public int TotalRatings()
@@ -39,9 +40,9 @@ namespace Memerator.API.Objects
             return values["rating"]["total"].Value<int>();
         }
 
-        public Decimal AverageRating()
+        public decimal AverageRating()
         {
-            return values["rating"]["average"].Value<Decimal>();
+            return values["rating"]["average"].Value<decimal>();
         }
 
         public DateTime Timestamp()
@@ -49,19 +50,19 @@ namespace Memerator.API.Objects
             return values["timestamp"].Value<DateTime>();
         }
         
-        public String TimeAgo()
+        public string TimeAgo()
         {
-            return values["time_ago"].Value<String>();
+            return values["time_ago"].Value<string>();
         }
 
-        public String MemeUrl()
+        public string MemeUrl()
         {
-            return values["permalink"].Value<String>();
+            return values["permalink"].Value<string>();
         }
 
-        public Boolean Disabled()
+        public bool Disabled()
         {
-            return values["disabled"].Value<Boolean>();
+            return values["disabled"].Value<bool>();
         }
         
         public User Author()
@@ -82,13 +83,8 @@ namespace Memerator.API.Objects
         public List<Comment> Comments()
         {
             var commentJson = JArray.Parse(MemeratorAPI.GetAPI().Get("meme/" + MemeId() + "/comments"));
-            var comments = new List<Comment>();
-            foreach (var comment in commentJson)
-            {
-                comments.Add(new Comment(comment.Value<JObject>()));
-            }
 
-            return comments;
+            return commentJson.Select(comment => new Comment(comment.Value<JObject>())).ToList();
         }
     }
 }
