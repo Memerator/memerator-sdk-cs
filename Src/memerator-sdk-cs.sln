@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "memerator-sdk-cs", "memerator-sdk-cs\memerator-sdk-cs.csproj", "{7A3064A6-BDDF-459E-BB41-34B776AB3155}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Memerator.API", "Memerator.API\Memerator.API.csproj", "{7A3064A6-BDDF-459E-BB41-34B776AB3155}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
