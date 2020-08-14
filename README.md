@@ -20,11 +20,11 @@ As of now, you can download the .dll from the Actions tab.
 
 ### Usage
 
-Here is a sample code that will print the caption of the meme with ID "aaaaaaa".
+Here is some sample code.
+
+To get an API Key, go to the [API Authentication page](https://memerator.me/api/auth)
 
 ```c#
-using Memerator.API;
-
 using System;
 using Memerator.API;
 using Memerator.API.Objects;
@@ -35,9 +35,19 @@ namespace TestApp
     {
         static void Main(string[] args)
         {
-            MemeratorAPI api = new MemeratorAPI("[your api key");
+            // Instantiate MemeratorAPI
+            MemeratorAPI api = new MemeratorAPI("[your api key]");
+            // Get meme "aaaaaaa"
             Meme meme = api.GetMeme("aaaaaaa");
+            // Return caption
             Console.WriteLine("Caption for meme aaaaaaa: " + meme.Caption());
+
+            // To access the API directly
+            JObject data = JObject.Parse(API.get("some/route"));
+            Console.WriteLine("Check out: " + data["response"].Value<string>());
+        
+            // Change Key
+            api.SetToken("MyNewToken");
         }
     }
 }
